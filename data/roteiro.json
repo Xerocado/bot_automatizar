@@ -1,0 +1,302 @@
+[
+  {
+    "cena": 1,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":1,"texto":""}
+    }
+  },
+  {
+    "cena": 2,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Olha isso! O Hiroki acabou de deixar todo mundo para tras!"},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":1,"texto":""}
+    }
+  },
+  {
+    "cena": 3,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "yumi": {"emocao":"animado","intensidade":3,"texto":"Yumi: Caraca! Que golaço foi esse!?"},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 4,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":3,"texto":"Kaede: Eu deveria ter apoiado ele quando mais precisava..."},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":1,"texto":""}
+    }
+  },
+  {
+    "cena": 5,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":1,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Esse e o meu irmao!"},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 6,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":3,"texto":"Nao: Hmph... estao exagerando demais."},
+      "yumi": {"emocao":"animado","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 7,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"animado","intensidade":3,"texto":"Yumi: O Hiroki esta parecendo um monstro em campo!"},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 8,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":3,"texto":"Kaede: Ver ele conquistando tudo isso me deixa feliz..."},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":1,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 9,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":2,"texto":""},
+      "nao": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":3,"texto":"Yumi: Eu me sinto mal por tudo que aconteceu com ele..."},
+      "kokujin": {"emocao":"raiva","intensidade":1,"texto":""}
+    }
+  },
+  {
+    "cena": 10,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Ninguem pode negar o talento dele!"},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 11,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":1,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":3,"texto":"Nao: Ele nao deveria estar tao famoso assim."},
+      "yumi": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 12,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Ridiculo. Estao tratando ele como uma lenda."}
+    }
+  },
+  {
+    "cena": 13,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":3,"texto":"Kaede: Mesmo depois de tudo, ele continuou seguindo em frente..."},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"surpreso","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 14,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Eu tenho muito orgulho dele!"},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 15,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":2,"texto":""},
+      "yumi": {"emocao":"animado","intensidade":3,"texto":"Yumi: Quanto mais o video mostra, mais incrivel ele parece!"},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Chega dessa babacao de ovo."}
+    }
+  },{
+    "cena": 16,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 17,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":3,"texto":"Kaede: Ele passou por tanta coisa... e mesmo assim nunca desistiu."},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 18,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":1,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Foi justamente nas dificuldades que ele ficou mais forte!"},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 19,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":3,"texto":"Nao: Eu ainda acho que estao exagerando demais com ele."},
+      "yumi": {"emocao":"neutro","intensidade":1,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 20,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"animado","intensidade":3,"texto":"Yumi: Ele voltou ainda melhor do que antes!"},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 21,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":3,"texto":"Kaede: Eu queria poder voltar no tempo e fazer tudo diferente..."},
+      "kanoko": {"emocao":"triste","intensidade":1,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 22,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Copa de 2026? O Hiroki pisaria em todo mundo!"},
+      "nao": {"emocao":"surpreso","intensidade":1,"texto":""},
+      "yumi": {"emocao":"animado","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 23,
+    "personagens": {
+      "kaede": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":2,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Eu nao aguento mais ouvir o nome dele."}
+    }
+  },
+  {
+    "cena": 24,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"surpreso","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":3,"texto":"Nao: Se ele tivesse me escolhido, eu estaria ao lado dele agora."},
+      "yumi": {"emocao":"neutro","intensidade":1,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 25,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":3,"texto":"Yumi: Mesmo depois de tudo, eu estou feliz por ele."},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 26,
+    "personagens": {
+      "kaede": {"emocao":"triste","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"neutro","intensidade":1,"texto":""},
+      "yumi": {"emocao":"triste","intensidade":1,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Como alguem como ele conseguiu chegar tao longe?"}
+    }
+  },
+  {
+    "cena": 27,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":3,"texto":"Kaede: Apesar da culpa que eu carrego, ver ele vencer aquece meu coracao."},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 28,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Nao importa o que aconteca, eu sempre vou apoiar meu irmao!"},
+      "nao": {"emocao":"surpreso","intensidade":1,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":2,"texto":""}
+    }
+  },
+  {
+    "cena": 29,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":2,"texto":""},
+      "kanoko": {"emocao":"feliz","intensidade":2,"texto":""},
+      "nao": {"emocao":"raiva","intensidade":3,"texto":"Nao: Eu odeio admitir isso... mas ele realmente venceu."},
+      "yumi": {"emocao":"animado","intensidade":2,"texto":""},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Cala a boca! Ele nao merece tudo isso!"}
+    }
+  },
+  {
+    "cena": 30,
+    "personagens": {
+      "kaede": {"emocao":"feliz","intensidade":3,"texto":"Kaede: Hiroki... eu espero que voce continue brilhando."},
+      "kanoko": {"emocao":"animado","intensidade":3,"texto":"Kanoko: Esse e o meu irmao!"},
+      "nao": {"emocao":"raiva","intensidade":2,"texto":""},
+      "yumi": {"emocao":"feliz","intensidade":3,"texto":"Yumi: Eu vou torcer por voce daqui para frente!"},
+      "kokujin": {"emocao":"raiva","intensidade":3,"texto":"Kokujin: Um dia eu vou superar voce, Hiroki."}
+    }
+  }
+]
+

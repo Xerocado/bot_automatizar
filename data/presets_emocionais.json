@@ -1,0 +1,48 @@
+{
+  "neutro": {
+    "intensidade_1": { "olhos": "neutro", "boca": "neutra" },
+    "intensidade_2": { "olhos": "entediado", "boca": "neutra" },
+    "intensidade_3": { "olhos": "fechado", "boca": "neutra" }
+  },
+
+  "feliz": {
+    "intensidade_1": { "olhos": "feliz", "boca": "sorrindo" },
+    "intensidade_2": { "olhos": "olho_feliz", "boca": "sorrindo_feliz" },
+    "intensidade_3": { "olhos": "neutro", "boca": "boca_falando_feliz" }
+  },
+
+  "triste": {
+    "intensidade_1": { "olhos": "fechado_triste", "boca": "fechado_triste" },
+    "intensidade_2": { "olhos": "triste", "boca": "fechada" },
+    "intensidade_3": { "olhos": "neutro", "boca": "falando_triste" }
+  },
+
+  "raiva": {
+    "intensidade_1": { "olhos": "raiva", "boca": "roendo_dente" },
+    "intensidade_2": { "olhos": "olho_feliz", "boca": "boca_raiva" },
+    "intensidade_3": { "olhos": "raiva", "boca": "gritando_raiva_2" }
+  },
+
+  "surpreso": {
+    "intensidade_1": { "olhos": "surpreso_1", "boca": "boca_surpreso" },
+    "intensidade_2": { "olhos": "surpreso_2", "boca": "boca_surpreso_2" },
+    "intensidade_3": { "olhos": "olho_feliz", "boca": "boca_surpreso_3" }
+  },
+
+  "medo": {
+    "intensidade_1": { "olhos": "assustado", "boca": "fechada" },
+    "intensidade_2": { "olhos": "olho_feliz", "boca": "boca_medo" },
+    "intensidade_3": { "olhos": "assustado", "boca": "triste" }
+  },
+  "tedio": {
+    "intensidade_1": { "olhos": "entediado", "boca": "neutra" },
+    "intensidade_2": { "olhos": "olho_tedio", "boca": "neutra" },
+    "intensidade_3": { "olhos": "neutro", "boca": "boca_tedio" }
+  },
+
+  "animado": {
+    "intensidade_1": { "olhos": "feliz", "boca": "sorrindo" },
+    "intensidade_2": { "olhos": "olho_feliz", "boca": "sorrindo_animado" },
+    "intensidade_3": { "olhos": "surpreso_2", "boca": "falando_feliz" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "YUMI": {
+    "intensidade_maxima": 3,
+    "modificadores": {}
+  },
+
+  "NAO": {
+    "intensidade_maxima": 3,
+    "modificadores": {}
+  },
+
+  "KAEDE": {
+    "intensidade_maxima": 3,
+    "modificadores": {}
+  },
+
+  "KANOKO": {
+    "intensidade_maxima": 3,
+    "modificadores": {}
+  },
+
+  "KOKUJIN": {
+    "intensidade_maxima": 3,
+    "modificadores": {}
+  }
+}

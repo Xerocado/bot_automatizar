@@ -1,0 +1,32 @@
+[
+  {
+    "cena": 1,
+    "personagens": {
+      "kaede": {
+        "emocao": "animado",
+        "intensidade": 3,
+        "texto": "Kaede: Caraca, olha o Hiroki entrando com essa confianca!"
+      },
+      "kanoko": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "nao": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "yumi": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "kokujin": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  }
+]

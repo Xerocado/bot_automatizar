@@ -1,0 +1,44 @@
+{
+  "olhos": {
+    "neutro":          [1, 3, 4],
+    "entediado":       [1, 1, 2],
+    "feliz":           [1, 2, 4], 
+    "triste":          [4, 3, 2],
+    "raiva":           [1, 4, 4],
+    "surpreso_1":      [2, 1, 1],
+    "surpreso_2":      [1, 4, 5],
+    "fechado":         [2, 3, 5],
+    "fechado_triste":  [2, 3, 4],
+    "assustado":       [2, 1, 3],
+    "sem_entender":    [2, 4, 1],
+    "olho_feliz":      [1, 4, 4],
+    "olho_tedio":      [1, 2, 4]
+  },
+
+  "bocas": {
+    "neutra":               [1,  1,  2],
+    "sorrindo":             [1,  1,  1],
+    "sorrindo_tranquilo":   [1,  1,  4],
+    "triste":               [3,  3,  4],
+    "gritando_raiva_1":     [13, 1,  1],
+    "gritando_raiva_2":     [13, 1,  3],
+    "roendo_dente":         [13, 3,  3],
+    "surpreso":             [11, 4,  3],
+    "fechada":              [1,  3,  3],
+    "sorrindo_feliz":       [7,  1,  1],
+    "sorrindo_animado":     [7,  3,  1],
+    "fechado_triste":       [9,  2,  2],
+    "rindo":                [3,  1,  1],
+    "falando":              [10, 2,  3],
+    "falando_feliz":        [11, 4,  4],
+    "boca_assistindo_sem_falar":   [2,  4,  3],
+    "boca_falando_feliz":          [3,  1,  5],
+    "falando_triste":              [7,  4,  5],
+    "boca_raiva":                  [2,  4,  5],
+    "boca_surpreso":               [8,  1,  4],
+    "boca_surpreso_2":             [11, 3,  1],
+    "boca_surpreso_3":             [8,  3,  1],
+    "boca_medo":                   [2,  1,  3],
+    "boca_tedio":                  [3,  3,  4]
+  }
+}
