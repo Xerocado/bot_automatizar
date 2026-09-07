@@ -60,6 +60,7 @@ _estado: dict = {
 
 _coords:     dict = {}
 _expressoes: dict = {}
+_aliases_personagens: dict = {}
 
 def _pagina_real_olhos() -> int:
     return detectar_pagina(
@@ -104,7 +105,7 @@ def _personagem_da_cena(cena: dict) -> str:
     """
     Normaliza o nome do personagem para a chave usada em coords.json.
     """
-    personagem = str(cena["personagem"])
+    personagem = utils.resolver_personagem(cena["personagem"], _aliases_personagens)
     botoes = _coords.get("BOTOES", {})
     if personagem in botoes:
         return personagem
@@ -664,7 +665,7 @@ def inicializar() -> None:
     Configura pyautogui e carrega todos os dados JSON.
     Deve ser chamado uma única vez no início da execução.
     """
-    global _coords, _expressoes
+    global _coords, _expressoes, _aliases_personagens
 
     pyautogui.FAILSAFE = config.FAILSAFE
     utils.info(f"FAILSAFE {'ativado' if config.FAILSAFE else 'desativado'}.")
@@ -676,6 +677,7 @@ def inicializar() -> None:
 
     _coords     = utils.carregar_coords()
     _expressoes = utils.carregar_expressoes()
+    _aliases_personagens = utils.carregar_aliases_personagens()
 
     config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     utils.info("Engine inicializado. Dados carregados.")
@@ -811,7 +813,7 @@ def _personagens_da_cena(cena: dict) -> list[tuple[str, dict]]:
 
 
 def _normalizar_personagem(nome: str) -> str:
-    personagem = str(nome)
+    personagem = utils.resolver_personagem(nome, _aliases_personagens)
     botoes = _coords.get("BOTOES", {})
     if personagem in botoes:
         return personagem

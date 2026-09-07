@@ -1,21 +1,37 @@
 from emotion_preset_system import EmotionPresetSystem
 from character_personality import carregar_todos
+import utils
 
 
 class ReactionDirector:
+    METADADOS_CENA = (
+        "cena",
+        "video",
+        "inicio",
+        "fim",
+        "duracao",
+        "trecho",
+        "trecho_da_letra",
+        "contexto",
+        "resumo_do_trecho",
+        "personagem_cantando",
+        "fala",
+    )
+
     def __init__(self):
         self.presets = EmotionPresetSystem()
         self.personalidades = carregar_todos("data/personalidades.json")
+        self.aliases_personagens = utils.carregar_aliases_personagens()
 
     def processar(self, cena: dict) -> dict:
         if "personagens" in cena:
             return self._processar_cena_completa(cena)
 
-        personagem = cena["personagem"]
+        personagem = self._normalizar_nome(cena["personagem"])
         emocao = cena["emocao"]
         intensidade = cena["intensidade"]
 
-        personalidade = self.personalidades[personagem.upper()]
+        personalidade = self._personalidade(personagem)
 
         emocao_final, intensidade_final = personalidade.filtrar_emocao(
             emocao,
@@ -27,12 +43,14 @@ class ReactionDirector:
             intensidade_final
         )
 
-        return {
+        cena_resolvida = self._copiar_metadados_cena(cena)
+        cena_resolvida.update({
             "personagem": personagem,
             "olhos": preset["olhos"],
             "boca": preset["boca"],
             "texto": cena["texto"]
-        }
+        })
+        return cena_resolvida
 
     def _processar_cena_completa(self, cena: dict) -> dict:
         personagens = self._normalizar_personagens(cena["personagens"])
@@ -53,11 +71,12 @@ class ReactionDirector:
         texto_cena = self._texto_da_cena(cena)
         falante_declarado = self._falante_declarado(cena)
 
-        cena_resolvida = {
+        cena_resolvida = self._copiar_metadados_cena(cena)
+        cena_resolvida.update({
             "personagens": {},
             "personagem": None,
             "texto": texto_cena,
-        }
+        })
 
         falantes = []
         intensidade_3 = []
@@ -132,7 +151,7 @@ class ReactionDirector:
         emocao = estado["emocao"]
         intensidade = int(estado["intensidade"])
 
-        personalidade = self.personalidades[personagem]
+        personalidade = self._personalidade(personagem)
         emocao_final, intensidade_final = personalidade.filtrar_emocao(
             emocao,
             intensidade,
@@ -173,7 +192,16 @@ class ReactionDirector:
         raise TypeError("'personagens' deve ser um objeto ou uma lista")
 
     def _normalizar_nome(self, nome: str) -> str:
-        return str(nome).upper()
+        return utils.resolver_personagem(nome, self.aliases_personagens)
+
+    def _personalidade(self, personagem: str):
+        if personagem not in self.personalidades:
+            opcoes = ", ".join(sorted(self.personalidades))
+            raise ValueError(
+                f"Personagem '{personagem}' não configurado em personalidades.json. "
+                f"Use um destes slots: {opcoes}"
+            )
+        return self.personalidades[personagem]
 
     def _falante_declarado(self, cena: dict) -> str | None:
         for chave in ("personagem", "falante"):
@@ -192,3 +220,11 @@ class ReactionDirector:
             if chave in estado:
                 return str(estado[chave])
         return ""
+
+
+    def _copiar_metadados_cena(self, cena: dict) -> dict:
+        return {
+            chave: cena[chave]
+            for chave in self.METADADOS_CENA
+            if chave in cena
+        }

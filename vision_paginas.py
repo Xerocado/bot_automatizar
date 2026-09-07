@@ -2,6 +2,8 @@ from pathlib import Path
 from PIL import Image, ImageChops
 import pyautogui
 
+import config
+
 REFS_DIR = Path("refs_paginas")
 
 
@@ -52,8 +54,8 @@ def diferenca(img1, img2):
 def detectar_pagina(tipo, coords):
     atual = capturar_contador(coords)
 
-    # salva para debug
-    atual.save("debug_atual.png")
+    if config.DEBUG_SCREENSHOTS:
+        atual.save("debug_atual.png")
 
     melhor_pagina = None
     melhor_score = float("inf")

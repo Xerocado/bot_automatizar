@@ -10,6 +10,7 @@ import time
 from reaction_director import ReactionDirector
 import config
 import engine
+import timeline
 import utils
 
 
@@ -29,15 +30,28 @@ def main() -> None:
         utils.warn("Roteiro vazio. Encerrando.")
         sys.exit(0)
 
+    cenas_resolvidas: list[dict] = []
+    try:
+        for cena in roteiro:
+            cenas_resolvidas.append(director.processar(cena))
+
+        arquivos_timeline = timeline.salvar_timeline(cenas_resolvidas)
+        if arquivos_timeline:
+            json_path, csv_path = arquivos_timeline
+            utils.info(f"Timeline JSON salva em: {json_path.resolve()}")
+            utils.info(f"Timeline CSV salva em:  {csv_path.resolve()}")
+    except Exception as exc:
+        utils.erro(f"Falha ao preparar roteiro/timeline: {exc}")
+        sys.exit(1)
+
     utils.info("Iniciando em 3 segundos... (mova o mouse ao canto superior-esquerdo para cancelar)")
     time.sleep(3)
 
     erros: list[str] = []
     concluidas = 0
 
-    for i, cena in enumerate(roteiro, start=1):
+    for i, cena_resolvida in enumerate(cenas_resolvidas, start=1):
         try:
-            cena_resolvida = director.processar(cena)
             engine.processar_cena(cena_resolvida, i)
             concluidas += 1
         except KeyboardInterrupt:

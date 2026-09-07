@@ -1,58 +1,140 @@
 {
   "BOTOES": {
-    "KAEDE":    [1761, 71],
-    "NAO":      [1760, 174],
-    "KOKUJIN":  [1760, 473],
-    "YUMI":     [1774, 386],
-    "KANOKO":   [1767, 277],
-
-    "face":     [1452, 416],
-    "quickjump_face": [1452, 416],
-    "editar":   [1633, 86],
-
-    "botao_olho":    [1286, 416],
-    "eyes":          [1286, 416],
-    "quickjump_eyes": [1286, 416],
-    "olhos_submenu": [940, 404],
-    "selector_olhos": [940, 404],
-
-    "boca":     [939, 639],
-    "selector_boca": [939, 639],
-    "tab_face": [1285, 214],
-
-    "retroceder_pagina_olhos": [1012, 904],
-    "avancar_pagina_olhos":    [1570, 904],
-
-    "retroceder_pagina_bocas": [998,  902],
-    "avancar_pagina_bocas":    [1548, 898],
-
-    "estudio":          [612, 966],
-    "ocultar_interface":[141, 939],
-    "fechar_x":         [1760, 95]
+    "PERSONAGEM_1": [
+      1761,
+      71
+    ],
+    "PERSONAGEM_2": [
+      1760,
+      174
+    ],
+    "PERSONAGEM_3": [
+      1767,
+      277
+    ],
+    "PERSONAGEM_4": [
+      1774,
+      386
+    ],
+    "PERSONAGEM_5": [
+      1760,
+      473
+    ],
+    "KAEDE": [
+      1761,
+      71
+    ],
+    "NAO": [
+      1760,
+      174
+    ],
+    "KOKUJIN": [
+      1760,
+      473
+    ],
+    "YUMI": [
+      1774,
+      386
+    ],
+    "KANOKO": [
+      1767,
+      277
+    ],
+    "face": [
+      1452,
+      416
+    ],
+    "quickjump_face": [
+      1452,
+      416
+    ],
+    "editar": [
+      1633,
+      86
+    ],
+    "botao_olho": [
+      1286,
+      416
+    ],
+    "eyes": [
+      1286,
+      416
+    ],
+    "quickjump_eyes": [
+      1286,
+      416
+    ],
+    "olhos_submenu": [
+      940,
+      404
+    ],
+    "selector_olhos": [
+      940,
+      404
+    ],
+    "boca": [
+      939,
+      639
+    ],
+    "selector_boca": [
+      939,
+      639
+    ],
+    "tab_face": [
+      1285,
+      214
+    ],
+    "retroceder_pagina_olhos": [
+      1012,
+      904
+    ],
+    "avancar_pagina_olhos": [
+      1570,
+      904
+    ],
+    "retroceder_pagina_bocas": [
+      998,
+      902
+    ],
+    "avancar_pagina_bocas": [
+      1548,
+      898
+    ],
+    "estudio": [
+      612,
+      966
+    ],
+    "ocultar_interface": [
+      141,
+      939
+    ],
+    "fechar_x": [
+      1760,
+      95
+    ]
   },
-
   "TODO_COORDS": {
-    "tab_face": [1285, 214]
+    "tab_face": [
+      1285,
+      214
+    ]
   },
-
   "GRID_OLHOS": {
     "primeiro_x": 842,
     "primeiro_y": 250,
     "dx": 229,
     "dy": 165
   },
-
   "GRID_BOCAS": {
     "primeiro_x": 842,
     "primeiro_y": 250,
     "dx": 229,
     "dy": 165
   },
-  
   "PAGINA_CONTADOR": {
     "x": 1254,
     "y": 911,
     "largura": 29,
     "altura": 44
-}
+  }
 }

@@ -55,22 +55,11 @@ if __name__ == "__main__":
     personagens = carregar_todos(base / "personalidades.json")
 
     casos = [
-        ("KOKUJIN", "triste",   2),
-        ("KOKUJIN", "medo",     3),
-        ("KOKUJIN", "feliz",    3),
-        ("KOKUJIN", "animado",  3),
-        ("KOKUJIN", "raiva",    3),
-        ("KAEDE",   "tedio",    2),
-        ("KAEDE",   "malicia",  3),
-        ("KAEDE",   "surpresa", 3),
-        ("YUMI",    "triste",   2),
-        ("YUMI",    "vergonha", 2),
-        ("YUMI",    "raiva",    3),
-        ("YUMI",    "malicia",  2),
-        ("KANOKO",  "triste",   3),
-        ("KANOKO",  "medo",     3),
-        ("KANOKO",  "vergonha", 2),
-        ("KANOKO",  "animado",  3),
+        ("PERSONAGEM_1", "triste", 2),
+        ("PERSONAGEM_2", "medo", 3),
+        ("PERSONAGEM_3", "feliz", 3),
+        ("PERSONAGEM_4", "animado", 3),
+        ("PERSONAGEM_5", "raiva", 3),
     ]
 
     print(f"{'Personagem':<10} {'Entrada':<12} {'Int':>3}  →  {'Saída':<15} {'Int':>3}")

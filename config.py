@@ -14,7 +14,10 @@ COORDS_FILE     = DATA_DIR / "coords.json"
 EXPRESSOES_FILE = DATA_DIR / "expressoes.json"
 PRESETS_FILE    = DATA_DIR / "presets_emocionais.json"
 PERSONALIDADES_FILE = DATA_DIR / "personalidades.json"
+PERSONAGENS_FILE = DATA_DIR / "personagens.json"
 ROTEIRO_FILE    = DATA_DIR / "roteiro.json"
+TIMELINE_JSON_FILE = OUTPUT_DIR / "timeline_capcut.json"
+TIMELINE_CSV_FILE  = OUTPUT_DIR / "timeline_capcut.csv"
 
 # ── Delays (segundos) ─────────────────────────────────────────────────────────
 CLICK_DURATION  = 0.5   # duração do movimento do mouse até o alvo

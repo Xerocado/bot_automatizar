@@ -9,6 +9,7 @@ Responsabilidades:
 """
 
 import json
+import re
 import textwrap
 from pathlib import Path
 from typing import Any
@@ -53,7 +54,10 @@ def carregar_expressoes() -> dict:
 
 
 def carregar_roteiro() -> list[dict]:
-    return carregar_json(config.ROTEIRO_FILE)
+    roteiro = carregar_json(config.ROTEIRO_FILE)
+    if isinstance(roteiro, dict) and "cenas" in roteiro:
+        return roteiro["cenas"]
+    return roteiro
 
 def carregar_presets() -> dict:
     return carregar_json(config.PRESETS_FILE)
@@ -61,6 +65,47 @@ def carregar_presets() -> dict:
 
 def carregar_personalidades() -> dict:
     return carregar_json(config.PERSONALIDADES_FILE)
+
+
+def carregar_personagens_config() -> dict:
+    if not config.PERSONAGENS_FILE.exists():
+        return {}
+    return carregar_json(config.PERSONAGENS_FILE)
+
+
+def normalizar_chave_personagem(nome: str) -> str:
+    chave = str(nome).strip().upper()
+    chave = re.sub(r"[\s-]+", "_", chave)
+    chave = re.sub(r"_+", "_", chave).strip("_")
+
+    match = re.fullmatch(r"(?:PERSONAGEM|PERSONA|CHARACTER|CHAR|P)_?(\d+)", chave)
+    if match:
+        return f"PERSONAGEM_{int(match.group(1))}"
+
+    return chave
+
+
+def carregar_aliases_personagens() -> dict[str, str]:
+    aliases: dict[str, str] = {}
+    for nome, dados in carregar_personagens_config().items():
+        canonico = normalizar_chave_personagem(nome)
+        aliases[canonico] = canonico
+
+        if isinstance(dados, dict):
+            for campo in ("botao", "nome"):
+                if dados.get(campo):
+                    aliases[normalizar_chave_personagem(dados[campo])] = canonico
+            for apelido in dados.get("apelidos", []):
+                aliases[normalizar_chave_personagem(apelido)] = canonico
+
+    return aliases
+
+
+def resolver_personagem(nome: str, aliases: dict[str, str] | None = None) -> str:
+    chave = normalizar_chave_personagem(nome)
+    if aliases and chave in aliases:
+        return aliases[chave]
+    return chave
 # ── Grid matemático ───────────────────────────────────────────────────────────
 
 def calcular_posicao_grid(
@@ -95,5 +140,20 @@ def calcular_posicao_grid(
 # ── Quebra de texto ───────────────────────────────────────────────────────────
 
 def quebrar_texto(texto: str, max_chars: int = config.TEXT_MAX_CHARS) -> list[str]:
-    """Divide o comentário em linhas respeitando o limite de caracteres."""
-    return textwrap.wrap(texto, width=max_chars)
+    """
+    Divide o comentário em linhas respeitando o limite de caracteres.
+
+    Respeita quebras de linha manuais (\n) inseridas no roteiro — por exemplo,
+    para separar blocos de idiomas diferentes (PT-BR / EN / ES). Cada bloco
+    separado por \n é então quebrado individualmente pelo limite de largura.
+    Linhas vazias (\n\n) são preservadas como espaçamento entre blocos.
+    """
+    linhas: list[str] = []
+    for bloco in texto.split("\n"):
+        bloco = bloco.rstrip()
+        if not bloco:
+            # Linha em branco intencional (espaçamento entre idiomas)
+            linhas.append("")
+            continue
+        linhas.extend(textwrap.wrap(bloco, width=max_chars) or [""])
+    return linhas

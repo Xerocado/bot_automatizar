@@ -1,0 +1,53 @@
+{
+  "PERSONAGEM_1": {
+    "descricao": "Slot 1: primeiro personagem de cima na lista lateral do Gacha Club.",
+    "botao": "PERSONAGEM_1",
+    "apelidos": [
+      "P1",
+      "PERSONAGEM 1",
+      "PERSONAGEM_1",
+      "KAEDE"
+    ]
+  },
+  "PERSONAGEM_2": {
+    "descricao": "Slot 2: segundo personagem de cima na lista lateral do Gacha Club.",
+    "botao": "PERSONAGEM_2",
+    "apelidos": [
+      "P2",
+      "PERSONAGEM 2",
+      "PERSONAGEM_2",
+      "NAO",
+      "NÃO"
+    ]
+  },
+  "PERSONAGEM_3": {
+    "descricao": "Slot 3: terceiro personagem de cima na lista lateral do Gacha Club.",
+    "botao": "PERSONAGEM_3",
+    "apelidos": [
+      "P3",
+      "PERSONAGEM 3",
+      "PERSONAGEM_3",
+      "KANOKO"
+    ]
+  },
+  "PERSONAGEM_4": {
+    "descricao": "Slot 4: quarto personagem de cima na lista lateral do Gacha Club.",
+    "botao": "PERSONAGEM_4",
+    "apelidos": [
+      "P4",
+      "PERSONAGEM 4",
+      "PERSONAGEM_4",
+      "YUMI"
+    ]
+  },
+  "PERSONAGEM_5": {
+    "descricao": "Slot 5: quinto personagem de cima na lista lateral do Gacha Club.",
+    "botao": "PERSONAGEM_5",
+    "apelidos": [
+      "P5",
+      "PERSONAGEM 5",
+      "PERSONAGEM_5",
+      "KOKUJIN"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated runtime files
+debug_atual.png
+captura_atual.png
+output/
+
+# Local tooling
+.pytest_cache/
+.mypy_cache/
+*.log

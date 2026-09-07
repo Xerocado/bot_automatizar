@@ -1,25 +1,21 @@
 {
-  "YUMI": {
+  "PERSONAGEM_1": {
     "intensidade_maxima": 3,
     "modificadores": {}
   },
-
-  "NAO": {
+  "PERSONAGEM_2": {
     "intensidade_maxima": 3,
     "modificadores": {}
   },
-
-  "KAEDE": {
+  "PERSONAGEM_3": {
     "intensidade_maxima": 3,
     "modificadores": {}
   },
-
-  "KANOKO": {
+  "PERSONAGEM_4": {
     "intensidade_maxima": 3,
     "modificadores": {}
   },
-
-  "KOKUJIN": {
+  "PERSONAGEM_5": {
     "intensidade_maxima": 3,
     "modificadores": {}
   }

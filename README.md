@@ -58,6 +58,33 @@ O bot espera 3 segundos antes de começar, para dar tempo de focar a janela do j
 
 Para cancelar em emergência, mova o mouse para o canto superior esquerdo da tela. Isso usa o failsafe do `pyautogui`.
 
+
+## Personagens Genéricos
+
+O bot não depende mais de `KOKUJIN`, `KAEDE`, `NAO`, `KANOKO` e `YUMI` como nomes oficiais. O roteiro deve usar slots genéricos:
+
+| Slot | Posição no Gacha Club | Apelidos antigos aceitos |
+| --- | --- | --- |
+| `personagem_1` | Primeiro personagem de cima | `KAEDE`, `P1` |
+| `personagem_2` | Segundo personagem de cima | `NAO`, `P2` |
+| `personagem_3` | Terceiro personagem de cima | `KANOKO`, `P3` |
+| `personagem_4` | Quarto personagem de cima | `YUMI`, `P4` |
+| `personagem_5` | Quinto personagem de cima | `KOKUJIN`, `P5` |
+
+A IA pode escrever `personagem_1`, `personagem 1` ou `P1`; o bot normaliza tudo para `PERSONAGEM_1` internamente.
+
+Para mudar de universo, não precisa alterar o código. Basta explicar para a IA quem ocupa cada slot, por exemplo:
+
+```text
+personagem_1 = Naruto
+personagem_2 = Sasuke
+personagem_3 = Sakura
+personagem_4 = Kakashi
+personagem_5 = Hinata
+```
+
+O arquivo `data/personagens.json` guarda os apelidos aceitos. As coordenadas continuam em `data/coords.json`.
+
 ## Formato Principal do Roteiro
 
 O formato atual descreve o estado de todos os personagens em cada cena:
@@ -68,27 +95,27 @@ O formato atual descreve o estado de todos os personagens em cada cena:
     "video": 1,
     "cena": 1,
     "personagens": {
-      "kaede": {
+      "personagem_1": {
         "emocao": "animado",
         "intensidade": 3,
-        "texto": "Kaede: Olha isso!"
+        "texto": "Personagem 1: Olha isso!"
       },
-      "kanoko": {
-        "emocao": "surpreso",
-        "intensidade": 2,
-        "texto": ""
-      },
-      "nao": {
+      "personagem_2": {
         "emocao": "neutro",
         "intensidade": 1,
         "texto": ""
       },
-      "yumi": {
+      "personagem_3": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
         "emocao": "feliz",
         "intensidade": 2,
         "texto": ""
       },
-      "kokujin": {
+      "personagem_5": {
         "emocao": "raiva",
         "intensidade": 1,
         "texto": ""
@@ -122,10 +149,10 @@ O motor ainda aceita cena simples com olhos e boca explícitos:
 ```json
 [
   {
-    "personagem": "KOKUJIN",
+    "personagem": "personagem_5",
     "olhos": "raiva",
     "boca": "gritando_raiva_2",
-    "texto": "Kokujin: Eu não aceito isso."
+    "texto": "Personagem 5: Eu não aceito isso."
   }
 ]
 ```
@@ -223,15 +250,15 @@ Arquivos esperados:
 - `refs_paginas/olhos_1.png`, `olhos_2.png`, etc.
 - `refs_paginas/bocas_1.png`, `bocas_2.png`, etc.
 
-Durante a detecção, a captura atual do contador é salva em `debug_atual.png`.
+Quando `DEBUG_SCREENSHOTS=True`, a captura atual do contador é salva em `debug_atual.png`.
 
 ## Saída
 
 As imagens finais são salvas em `output/`:
 
 ```text
-cena_001_kaede.png
-cena_002_yumi.png
+cena_001_personagem_1.png
+cena_002_personagem_4.png
 cena_003_grupo.png
 ```
 
@@ -280,3 +307,63 @@ Os ajustes principais ficam em `config.py`:
 - Se o bot clicar no lugar errado, revise `data/coords.json`.
 - Se ele errar páginas de olhos/bocas, revise `refs_paginas/` e `PAGINA_CONTADOR`.
 - Antes de rodar um roteiro grande, teste com uma cena curta.
+
+## Roteiro Sincronizado para CapCut
+
+O roteiro tamb?m pode trazer a marca??o temporal de cada cena. O bot n?o edita o v?deo, mas valida esses tempos, preserva os metadados e gera dois arquivos de apoio em `output/`:
+
+- `timeline_capcut.json`: timeline limpa para consulta.
+- `timeline_capcut.csv`: planilha simples para abrir ao lado do CapCut.
+
+Para gerar somente a timeline, sem controlar o Gacha Club:
+
+```bash
+python timeline.py
+```
+
+Ao rodar `python main.py`, a timeline tamb?m ? gerada antes da automa??o come?ar.
+
+Formato recomendado:
+
+```json
+[
+  {
+    "cena": 18,
+    "inicio": "00:52.0",
+    "fim": "00:55.0",
+    "duracao": 3,
+    "trecho_da_letra": "?s vezes eu s? queria ser normal",
+    "resumo_do_trecho": "Hiroki demonstra cansa?o e desejo por uma vida comum.",
+    "personagem_cantando": "Hiroki",
+    "fala": false,
+    "personagens": {
+      "personagem_1": { "emocao": "triste", "intensidade": 2, "texto": "" },
+      "personagem_2": { "emocao": "triste", "intensidade": 1, "texto": "" },
+      "personagem_3": { "emocao": "neutro", "intensidade": 1, "texto": "" },
+      "personagem_4": { "emocao": "triste", "intensidade": 2, "texto": "" },
+      "personagem_5": { "emocao": "tedio", "intensidade": 1, "texto": "" }
+    }
+  }
+]
+```
+
+Aliases aceitos no roteiro:
+
+| Campo preferido | Alias aceito |
+| --- | --- |
+| `trecho_da_letra` | `trecho` |
+| `resumo_do_trecho` | `contexto` |
+| `personagem_cantando` | `cantor`, `personagem_cantor` |
+
+Regras validadas pelo bot:
+
+- Se uma cena tiver timeline, todas as cenas precisam ter `inicio`, `fim`, trecho, contexto e `personagem_cantando`.
+- `duracao` deve bater com `inicio` e `fim`, com toler?ncia de 0.2 segundo.
+- Cada cena deve durar entre 2.5 e 3.5 segundos.
+- O tempo final precisa ser maior que o tempo inicial.
+- O formato aceito ? `MM:SS.d` ou `HH:MM:SS.d`.
+- Cenas mudas devem usar `fala: false` e deixar `texto` vazio nos personagens.
+- O bot preserva `inicio`, `fim`, `duracao`, `trecho_da_letra`, `resumo_do_trecho` e `personagem_cantando`; esses campos servem s? para sincroniza??o da edi??o.
+
+Veja tamb?m `data/roteiro_sincronizado.exemplo.json` e `PROMPT_ROTEIRO_SINCRONIZADO.md`.
+
