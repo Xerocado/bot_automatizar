@@ -1,10 +1,9 @@
-from pathlib import Path
 from PIL import Image, ImageChops
 import pyautogui
 
 import config
 
-REFS_DIR = Path("refs_paginas")
+REFS_DIR = config.BASE_DIR / "refs_paginas"
 
 
 def capturar_contador(coords):
@@ -63,7 +62,10 @@ def detectar_pagina(tipo, coords):
     for arquivo in sorted(
         REFS_DIR.glob(f"{tipo}_*.png")
     ):
-        ref = Image.open(arquivo)
+        with Image.open(arquivo) as original:
+            ref = original.copy()
+        if ref.size != atual.size:
+            ref = ref.resize(atual.size, Image.Resampling.LANCZOS)
 
         try:
             score = diferenca(atual, ref)

@@ -6,6 +6,9 @@ __pycache__/
 debug_atual.png
 captura_atual.png
 output/
+cenas/*.png
+cenas/*.jpg
+cenas/*.jpeg
 
 # Local tooling
 .pytest_cache/

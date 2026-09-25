@@ -14,6 +14,8 @@ import argparse
 import json
 from pathlib import Path
 
+import utils
+
 
 BASE_DIR = Path(__file__).parent
 EXPRESSOES_FILE = BASE_DIR / "data" / "expressoes.json"
@@ -68,7 +70,7 @@ def calcular_xy(grid: dict, linha: int, coluna: int) -> tuple[int, int]:
 
 def listar(categoria: str | None) -> None:
     expressoes = carregar_json(EXPRESSOES_FILE)
-    coords = carregar_json(COORDS_FILE)
+    coords = utils.carregar_coords()
     categorias = [normalizar_categoria(categoria)] if categoria else ["olhos", "bocas"]
 
     for nome_categoria in categorias:
@@ -85,7 +87,7 @@ def setar(categoria: str, nome: str, pagina: int, linha: int, coluna: int) -> No
     validar_posicao(pagina, linha, coluna)
 
     expressoes = carregar_json(EXPRESSOES_FILE)
-    coords = carregar_json(COORDS_FILE)
+    coords = utils.carregar_coords()
     expressoes.setdefault(nome_categoria, {})
 
     anterior = expressoes[nome_categoria].get(nome)

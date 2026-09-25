@@ -10,7 +10,7 @@ NÃO usa: pyautogui.screenshot, OpenCV, OCR.
 
 from __future__ import annotations
 
-import time
+import math
 from pathlib import Path
 
 import mss
@@ -42,13 +42,19 @@ def capturar_tela() -> Image.Image:
 def _carregar_fonte(tamanho: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     """
     Carrega a fonte TrueType configurada em config.FONT_PATH.
-    Se o caminho estiver vazio ou inválido, usa a fonte padrão do Pillow.
+    Sem fonte configurada, tenta Arial/Segoe UI e depois o padrao do Pillow.
     """
     if config.FONT_PATH:
         try:
             return ImageFont.truetype(config.FONT_PATH, tamanho)
         except (IOError, OSError):
-            utils.warn(f"Fonte '{config.FONT_PATH}' não encontrada. Usando padrão.")
+            utils.warn(f"Fonte '{config.FONT_PATH}' nao encontrada. Tentando fontes do sistema.")
+    for caminho in ("C:/Windows/Fonts/arialbd.ttf", "C:/Windows/Fonts/segoeuib.ttf"):
+        if Path(caminho).is_file():
+            try:
+                return ImageFont.truetype(caminho, tamanho)
+            except OSError:
+                pass
     # Pillow >= 10: load_default aceita size
     try:
         return ImageFont.load_default(size=tamanho)
@@ -60,57 +66,115 @@ def _carregar_fonte(tamanho: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFon
 
 def adicionar_comentario(img: Image.Image, comentario: str) -> Image.Image:
     """
-    Desenha o comentário na parte inferior da imagem.
-
-    Características:
-      - Texto branco com contorno preto (para legibilidade em qualquer fundo).
-      - Quebra automática de linha.
-      - Alinhamento inferior-central.
-
-    Args:
-        img:        Imagem PIL de origem.
-        comentario: Texto a ser inserido.
-
-    Returns:
-        Nova imagem PIL com o texto sobreposto.
+    Retorna uma copia com legenda e caixa no canto inferior esquerdo.
+    As margens se aplicam a caixa; padding e borda ficam dentro dela.
+    Preserva quebras manuais e mede o texto incluindo seu contorno.
     """
-    # Trabalhar em cópia para não modificar o original
-    img = img.copy()
-    draw = ImageDraw.Draw(img)
-    fonte = _carregar_fonte(config.FONT_SIZE)
+    if not comentario.strip():
+        return img.copy()
 
-    largura, altura = img.size
-    linhas = utils.quebrar_texto(comentario)
+    margem_x = max(0, int(config.TEXT_MARGIN_X))
+    margem_y = max(0, int(config.TEXT_MARGIN_Y))
+    borda = max(0, int(config.TEXT_BOX_BORDER_WIDTH)) if config.TEXT_BOX_ENABLED else 0
+    padding_x = max(0, int(config.TEXT_BOX_PADDING_X)) + borda if config.TEXT_BOX_ENABLED else 0
+    padding_y = max(0, int(config.TEXT_BOX_PADDING_Y)) + borda if config.TEXT_BOX_ENABLED else 0
+    proporcao = float(config.TEXT_MAX_WIDTH_RATIO)
+    if not 0 < proporcao <= 1:
+        raise ValueError("TEXT_MAX_WIDTH_RATIO deve estar entre 0 (exclusivo) e 1.")
+    max_w = min(img.width - 2 * margem_x, int(img.width * proporcao)) - 2 * padding_x
+    max_h = img.height - margem_y - 2 * padding_y
+    if max_w <= 0 or max_h <= 0:
+        raise ValueError("Margens e padding nao deixam espaco para a legenda.")
 
-    # Calcular altura total do bloco de texto
-    line_height = config.FONT_SIZE + 6
-    bloco_altura = len(linhas) * line_height
+    resultado = img.convert("RGBA")
+    draw = ImageDraw.Draw(resultado)
+    estilo = {
+        "spacing": config.TEXT_LINE_SPACING,
+        "align": config.TEXT_ALIGN,
+        "stroke_width": config.TEXT_STROKE_WIDTH,
+    }
+    tamanho_minimo = max(1, min(config.FONT_SIZE, config.TEXT_MIN_FONT_SIZE))
+    for tamanho in range(config.FONT_SIZE, tamanho_minimo - 1, -1):
+        fonte = _carregar_fonte(tamanho)
+        linhas = _quebrar_texto_por_pixels(
+            comentario, draw, fonte, max_w, config.TEXT_STROKE_WIDTH,
+        )
+        texto = "\n".join(linhas)
+        bbox = draw.multiline_textbbox((0, 0), texto, font=fonte, **estilo)
+        largura_texto = math.ceil(bbox[2] - bbox[0])
+        altura_texto = math.ceil(bbox[3] - bbox[1])
+        if largura_texto <= max_w and altura_texto <= max_h:
+            break
+    else:
+        raise ValueError(
+            "Comentario nao cabe na imagem. Reduza a fala, as margens "
+            "ou TEXT_MIN_FONT_SIZE."
+        )
 
-    # Posição Y inicial (alinhar bloco ao rodapé)
-    y_inicio = altura - bloco_altura - config.TEXT_MARGIN_Y
+    largura_caixa = max_w + 2 * padding_x
+    altura_caixa = altura_texto + 2 * padding_y
+    esquerda = margem_x
+    inferior = img.height - margem_y
+    superior = inferior - altura_caixa
 
-    for i, linha in enumerate(linhas):
-        # Centralizar horizontalmente
-        try:
-            bbox = draw.textbbox((0, 0), linha, font=fonte)
-            text_w = bbox[2] - bbox[0]
-        except AttributeError:
-            text_w, _ = draw.textsize(linha, font=fonte)  # Pillow < 9
+    if config.TEXT_BOX_ENABLED:
+        opacidade = int(config.TEXT_BOX_OPACITY)
+        if not 0 <= opacidade <= 255:
+            raise ValueError("TEXT_BOX_OPACITY deve estar entre 0 e 255.")
+        camada = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(camada).rectangle(
+            (esquerda, superior, esquerda + largura_caixa - 1, inferior - 1),
+            fill=(*config.TEXT_BOX_COLOR, opacidade),
+            outline=(*config.TEXT_BOX_BORDER_COLOR, 255) if borda else None,
+            width=borda,
+        )
+        resultado = Image.alpha_composite(resultado, camada)
 
-        x = (largura - text_w) // 2
-        y = y_inicio + i * line_height
+    # Compensa os offsets da fonte para manter contorno e acentos dentro do padding.
+    origem = (esquerda + padding_x - bbox[0], superior + padding_y - bbox[1])
+    ImageDraw.Draw(resultado).multiline_text(
+        origem, texto, font=fonte, fill=config.TEXT_COLOR,
+        stroke_fill=config.TEXT_OUTLINE, **estilo,
+    )
+    return resultado.convert(img.mode)
 
-        # Contorno preto (deslocamento de ±2 px em 8 direções)
-        offsets = [(-2, -2), (0, -2), (2, -2),
-                   (-2,  0),          (2,  0),
-                   (-2,  2), (0,  2), (2,  2)]
-        for ox, oy in offsets:
-            draw.text((x + ox, y + oy), linha, font=fonte, fill=config.TEXT_OUTLINE)
 
-        # Texto principal
-        draw.text((x, y), linha, font=fonte, fill=config.TEXT_COLOR)
+def _quebrar_texto_por_pixels(
+    texto: str,
+    draw: ImageDraw.ImageDraw,
+    fonte: ImageFont.FreeTypeFont | ImageFont.ImageFont,
+    largura_maxima: int,
+    contorno: int,
+) -> list[str]:
+    """Mantem paragrafos e linhas vazias; divide palavras apenas se nao couberem."""
+    def cabe(trecho: str) -> bool:
+        bbox = draw.textbbox((0, 0), trecho, font=fonte, stroke_width=contorno)
+        return bbox[2] - bbox[0] <= largura_maxima
 
-    return img
+    linhas = []
+    for bloco in texto.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        linha = ""
+        for palavra in bloco.split():
+            tentativa = f"{linha} {palavra}" if linha else palavra
+            if cabe(tentativa):
+                linha = tentativa
+                continue
+            if linha:
+                linhas.append(linha)
+            while not cabe(palavra) and len(palavra) > 1:
+                inicio, fim, corte = 1, len(palavra) - 1, 1
+                while inicio <= fim:
+                    meio = (inicio + fim) // 2
+                    if cabe(palavra[:meio]):
+                        corte = meio
+                        inicio = meio + 1
+                    else:
+                        fim = meio - 1
+                linhas.append(palavra[:corte])
+                palavra = palavra[corte:]
+            linha = palavra
+        linhas.append(linha)
+    return linhas
 
 
 # ── Salvar ────────────────────────────────────────────────────────────────────

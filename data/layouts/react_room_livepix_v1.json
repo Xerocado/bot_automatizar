@@ -1,0 +1,117 @@
+{
+  "nome": "react_room_livepix_v1",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "background": "#DDE1E5"
+  },
+  "areas": {
+    "personagens_cenario": {
+      "x": 0,
+      "y": 0,
+      "w": 1120,
+      "h": 780
+    },
+    "qr_livepix": {
+      "x": 1120,
+      "y": 20,
+      "w": 760,
+      "h": 90
+    },
+    "react_video": {
+      "x": 1120,
+      "y": 120,
+      "w": 760,
+      "h": 560,
+      "color": "#00FF00"
+    },
+    "mensagens": {
+      "x": 0,
+      "y": 780,
+      "w": 1920,
+      "h": 300
+    }
+  },
+  "cenario": {
+    "parede": "#E7EAED",
+    "piso": "#CCD2D7",
+    "linha_piso_y": 610,
+    "sofa": {
+      "x": 70,
+      "y": 405,
+      "w": 930,
+      "h": 285,
+      "encosto": "#AEB8C2",
+      "assento": "#8E9AA6",
+      "sombra": "#74808B"
+    }
+  },
+  "personagens": {
+    "fonte_nome": 20,
+    "slots": {
+      "PERSONAGEM_1": {
+        "x": 70,
+        "y": 105,
+        "w": 170,
+        "h": 620,
+        "cor": "#E07A5F",
+        "imagem": "",
+        "nome": "Personagem 1"
+      },
+      "PERSONAGEM_2": {
+        "x": 250,
+        "y": 105,
+        "w": 170,
+        "h": 620,
+        "cor": "#3D405B",
+        "imagem": "",
+        "nome": "Personagem 2"
+      },
+      "PERSONAGEM_3": {
+        "x": 430,
+        "y": 105,
+        "w": 170,
+        "h": 620,
+        "cor": "#81B29A",
+        "imagem": "",
+        "nome": "Personagem 3"
+      },
+      "PERSONAGEM_4": {
+        "x": 610,
+        "y": 105,
+        "w": 170,
+        "h": 620,
+        "cor": "#6D597A",
+        "imagem": "",
+        "nome": "Personagem 4"
+      },
+      "PERSONAGEM_5": {
+        "x": 790,
+        "y": 105,
+        "w": 170,
+        "h": 620,
+        "cor": "#457B9D",
+        "imagem": "",
+        "nome": "Personagem 5"
+      }
+    }
+  },
+  "qr_livepix": {
+    "imagem": "",
+    "placeholder": false,
+    "background": "#DDE1E5",
+    "padding": 12
+  },
+  "mensagens": {
+    "background": "#1E2227",
+    "padding_x": 64,
+    "padding_y": 28,
+    "font_size_max": 42,
+    "font_size_min": 18,
+    "line_gap": 6,
+    "language_gap": 10,
+    "text_color": "#FFFFFF",
+    "stroke_color": "#000000",
+    "stroke_width": 3
+  }
+}

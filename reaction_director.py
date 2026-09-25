@@ -6,16 +6,9 @@ import utils
 class ReactionDirector:
     METADADOS_CENA = (
         "cena",
-        "video",
-        "inicio",
-        "fim",
-        "duracao",
-        "trecho",
-        "trecho_da_letra",
-        "contexto",
-        "resumo_do_trecho",
-        "personagem_cantando",
+        "falante",
         "fala",
+        "layout",
     )
 
     def __init__(self):
@@ -207,12 +200,22 @@ class ReactionDirector:
         for chave in ("personagem", "falante"):
             if chave in cena and cena[chave]:
                 return self._normalizar_nome(cena[chave])
+        falante = self._inferir_falante_da_fala(cena)
+        if falante:
+            return falante
         return None
 
     def _texto_da_cena(self, cena: dict) -> str:
         for chave in ("texto", "comentario", "coment\u00e1rio"):
             if chave in cena:
                 return str(cena[chave])
+        fala = cena.get("fala")
+        if isinstance(fala, dict):
+            return "\n".join(
+                str(fala.get(idioma, ""))
+                for idioma in ("pt", "en", "es")
+                if str(fala.get(idioma, "")).strip()
+            )
         return ""
 
     def _texto_do_estado(self, estado: dict) -> str:
@@ -220,6 +223,23 @@ class ReactionDirector:
             if chave in estado:
                 return str(estado[chave])
         return ""
+
+    def _inferir_falante_da_fala(self, cena: dict) -> str | None:
+        fala = cena.get("fala")
+        if not isinstance(fala, dict):
+            return None
+
+        for idioma in ("pt", "en", "es"):
+            texto = str(fala.get(idioma, "")).strip()
+            if ":" not in texto:
+                continue
+            possivel_nome = texto.split(":", 1)[0].strip()
+            if not possivel_nome:
+                continue
+            normalizado = self._normalizar_nome(possivel_nome)
+            if normalizado in self.personalidades:
+                return normalizado
+        return None
 
 
     def _copiar_metadados_cena(self, cena: dict) -> dict:

@@ -1,1025 +1,770 @@
 [
-    {
-        "video": 1,
-        "cena": 1,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "tedio",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "tedio",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 2,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "tedio",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "tedio",
-                "intensidade": 3,
-                "texto": "KOKUJIN: Hiroki de mascarado tragico? Ah, pronto. Agora ate trauma virou fantasia bonita.\nKOKUJIN: Hiroki as a tragic masked guy? Great. Now even trauma became a pretty fantasy.\nKOKUJIN: Hiroki como un enmascarado tragico? Genial. Ahora hasta el trauma se volvio fantasia bonita."
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 3,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 4,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 3,
-                "texto": "YUMI: O primeiro choque nao e a luta. E uma crianca tratando regra como a unica coisa segura.\nYUMI: The first shock is not the fight. It is a child treating rules as the only safe thing.\nYUMI: El primer golpe no es la pelea. Es un nino tratando las reglas como lo unico seguro."
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 5,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "NAO: Bonito pra caralho: adulto quebra, filho vira pedra. Depois chamam isso de genio.\nNAO: Real damn beautiful: an adult breaks, the son turns to stone. Then they call it genius.\nNAO: Muy bonito, carajo: el adulto se rompe, el hijo se vuelve piedra. Luego llaman a eso genio."
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "tedio",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 6,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 7,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 3,
-                "texto": "KANOKO: Eu achava que o Hiroki se fechava por orgulho. Aqui parece medo de perder tudo de novo.\nKANOKO: I thought Hiroki closed himself off out of pride. Here it feels like fear of losing everything again.\nKANOKO: Pense que Hiroki se cerraba por orgullo. Aqui parece miedo de perderlo todo otra vez."
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 8,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 9,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 10,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "KOKUJIN: Esse papo de amigo acima de regra e bonito ate morrer gente. Depois sobra choro e culpa.\nKOKUJIN: This talk about friends above rules is pretty until people die. Then only crying and guilt are left.\nKOKUJIN: Ese cuento de amigos por encima de reglas suena bonito hasta que muere gente. Luego quedan llanto y culpa."
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 11,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 12,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 3,
-                "texto": "KAEDE: Um menino recebendo um legado de morte... eu devia ter reconhecido esse peso no Hiroki antes.\nKAEDE: A boy receiving a legacy of death... I should have recognized that weight in Hiroki sooner.\nKAEDE: Un nino recibiendo un legado de muerte... debi reconocer antes ese peso en Hiroki."
-            },
-            "personagem_2": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 13,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 14,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "NAO: Que presente fudido... o olho vem junto com uma culpa que nao desliga nunca.\nNAO: What a messed-up gift... the eye comes with guilt that never switches off.\nNAO: Que regalo jodido... el ojo viene con una culpa que nunca se apaga."
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 15,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 16,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 3,
-                "texto": "KANOKO: Ele nao continua porque superou. Continua porque parar seria abandonar os mortos.\nKANOKO: He does not keep going because he moved on. He keeps going because stopping would abandon the dead.\nKANOKO: No sigue porque lo supero. Sigue porque detenerse seria abandonar a los muertos."
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 17,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "tedio",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 18,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "tedio",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 3,
-                "texto": "YUMI: A mascara nao esconde so o rosto. Ela organiza a culpa para ele conseguir funcionar.\nYUMI: The mask does not only hide his face. It organizes the guilt so he can keep functioning.\nYUMI: La mascara no solo esconde su rostro. Ordena la culpa para que pueda seguir funcionando."
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 19,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 20,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 3,
-                "texto": "KAEDE: Ele matou quem prometeu proteger. Nenhuma disciplina prepara uma crianca para carregar isso.\nKAEDE: He killed the person he promised to protect. No discipline prepares a child to carry that.\nKAEDE: Mato a quien prometio proteger. Ninguna disciplina prepara a un nino para cargar eso."
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 21,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 22,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "KOKUJIN: Aluno dele afundou e todo mundo passa pano. Professor que perde aluno perdeu, simples.\nKOKUJIN: His student sank and everyone makes excuses. A teacher who loses a student lost, simple.\nKOKUJIN: Su alumno se hundio y todos lo excusan. Profesor que pierde a un alumno perdio, simple."
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 23,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 24,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 3,
-                "texto": "KANOKO: Nao... ele olha pro Naruto como quem procura uma versao do Obito que ainda pode voltar.\nKANOKO: No... he looks at Naruto like someone searching for a version of Obito that can still come back.\nKANOKO: No... mira a Naruto como quien busca una version de Obito que todavia puede volver."
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 25,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 26,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "NAO: A parte do Sasuke pega porque o Hiroki conhece essa merda por dentro. Da pra ver ele se culpando.\nNAO: The Sasuke part hits because Hiroki knows that mess from the inside. You can see him blaming himself.\nNAO: La parte de Sasuke golpea porque Hiroki conoce esa mierda por dentro. Se nota que se culpa."
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 1,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 27,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 28,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 3,
-                "texto": "YUMI: Quando ele encara o aluno, nao e so dever. E medo de ver a propria falha ganhar rosto.\nYUMI: When he faces the student, it is not just duty. It is fear of seeing his own failure get a face.\nYUMI: Cuando enfrenta al alumno, no es solo deber. Es miedo de ver su propia falla tomar rostro."
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 29,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 30,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "tedio",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "surpreso",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 31,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "medo",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "raiva",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "animado",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "surpreso",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 3,
-                "texto": "KOKUJIN: Odeio esse tipo de heroi quebrado. Faz merda, sofre bonito e ainda sai lembrado como lenda.\nKOKUJIN: I hate this kind of broken hero. He messes up, suffers beautifully, and still gets remembered as a legend.\nKOKUJIN: Odio a este tipo de heroe roto. La caga, sufre bonito y aun asi lo recuerdan como leyenda."
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 32,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "feliz",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
-    },
-    {
-        "video": 1,
-        "cena": 33,
-        "personagens": {
-            "personagem_1": {
-                "emocao": "triste",
-                "intensidade": 3,
-                "texto": "KAEDE: No fim, Hiroki como Kakashi parece um sobrevivente tentando ensinar outros a nao herdarem o mesmo vazio.\nKAEDE: In the end, Hiroki as Kakashi feels like a survivor trying to teach others not to inherit the same emptiness.\nKAEDE: Al final, Hiroki como Kakashi parece un sobreviviente intentando ensenar a otros a no heredar el mismo vacio."
-            },
-            "personagem_2": {
-                "emocao": "neutro",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_3": {
-                "emocao": "feliz",
-                "intensidade": 1,
-                "texto": ""
-            },
-            "personagem_4": {
-                "emocao": "neutro",
-                "intensidade": 2,
-                "texto": ""
-            },
-            "personagem_5": {
-                "emocao": "raiva",
-                "intensidade": 2,
-                "texto": ""
-            }
-        }
+  {
+    "cena": 1,
+    "trecho_letra": "(Nome é caro, tudo é raro) (Abre o palco pro impacto)",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "surpreso",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "neutro",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "neutro",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 1,
+        "texto": ""
+      }
     }
+  },
+  {
+    "cena": 2,
+    "trecho_letra": "Falam que, falam que, na Nova Geração Tem um grande prodígio alemão",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "surpreso",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 3,
+    "trecho_letra": "É que ele tá bem na sua frente Por aqui, o impossível cês conhecerão",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 3,
+        "texto": "KANOKO: esse é o meu irmao mesmo?\nKANOKO: Is that really my brother?\nKANOKO: ¿Ese de verdad es mi hermano?"
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 4,
+    "trecho_letra": "Digno de ser um verme esmagado Deixa que eu decido, faço esse roteiro lindo",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 5,
+    "trecho_letra": "Geral sabe que, por aqui, Michael Kaiser é o imperador",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 3,
+        "texto": "KAEDE: Meu filho virou o imperador...?\nKAEDE: My son became the emperor...?\nKAEDE: ¿Mi hijo se convirtió en el emperador...?"
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 6,
+    "trecho_letra": "Mostro como é fácil carregar todos esses bastardos",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "tedio",
+        "intensidade": 3,
+        "texto": "KOKUJIN: esse desgraçado, acha que é quem?\nKOKUJIN: Who the hell does that bastard think he is?\nKOKUJIN: ¿Quién carajo se cree ese desgraciado?"
+      }
+    }
+  },
+  {
+    "cena": 7,
+    "trecho_letra": "Sigo ao vivo, vão ser massacrados Kaiser Impact, impactados",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 8,
+    "trecho_letra": "Sigo pisando, esmagando seu ego Inseto, se ajoelhe para o seu rei",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 9,
+    "trecho_letra": "Pra poder ser um rei, tive que derrubar reis Ergui meu próprio império, sem nada e sem ninguém",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "triste",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 3,
+        "texto": "NAO: como hiroki conseguiu ir tão longe?!\nNAO: How did Hiroki get this far?!\nNAO: ¡¿Cómo consiguió Hiroki llegar tan lejos?!"
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 10,
+    "trecho_letra": "Estou des—, estou desinteressado Por esse seu fraco, fraco futebol",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 11,
+    "trecho_letra": "Não é às, não é às porra nenhuma Pega a bola e me impressiona",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 3,
+        "texto": "YUMI: O Hiroki quer que ele acompanhe o nível dele.\nYUMI: Hiroki wants him to keep up with his level.\nYUMI: Hiroki quiere que esté a su nivel."
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 12,
+    "trecho_letra": "Você viu um futuro que eu não vi Então acho que eu te subestimei na luta",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 13,
+    "trecho_letra": "Uma aposta: Quem marcar mais gol, vence Faremos esse mundo de testemunha",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 3,
+        "texto": "KANOKO: vamo meu irmão é isso ai sede de vencer\nKANOKO: Let's go, bro! That's it, that's the hunger to win!\nKANOKO: ¡Vamos, hermano! ¡Eso es, con ganas de ganar!"
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 14,
+    "trecho_letra": "Tô aqui pra ter uma oferta e sair da sombra do Noa Sei que uma grande oferta aparecerá",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 15,
+    "trecho_letra": "De bicicleta, se fodam, otários Michael Kaiser marca um gol antológico",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 3,
+        "texto": "KANOKO: crlh maninho que golaço absurdo\nKANOKO: Holy shit, little bro, what an insane goal!\nKANOKO: ¡Joder, hermanito, qué golazo tan brutal!"
+      },
+      "personagem_4": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 16,
+    "trecho_letra": "Isagi Yoichi roubou a atenção Que merda, que merda, que merda, sou um merda",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "triste",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 17,
+    "trecho_letra": "Perdi pro Isagi, o mundo todo viu Nem fudendo que isso vai ficar assim",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 3,
+        "texto": "NAO: Pqp, eu devia ter ficado com o Hiroki.\nNAO: Fuck... I should've stayed with Hiroki.\nNAO: Joder... debería haberme quedado con Hiroki."
+      },
+      "personagem_3": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 18,
+    "trecho_letra": "Cresci apanhando Sem nem ao menos ter alguma chance de sonhar",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "triste",
+        "intensidade": 3,
+        "texto": "KAEDE: perdão filho, era para eu ter escolhido você\nKAEDE: Forgive me, son... I should've chosen you.\nKAEDE: Perdóname, hijo... debí haberte elegido a ti."
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "neutro",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 19,
+    "trecho_letra": "Do lixo, surgiu uma estrela Que precisou o mundo impactar",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 1,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 20,
+    "trecho_letra": "Vejo meu reino ruindo, agora diante do medo A rosa rasguei, passado sangrei E eu sei muito bem que não sou gênio, por isso me reinvento",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 1,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "triste",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 3,
+        "texto": "YUMI: Hiroki conseguiu superar o passado, fico feliz por ele\nYUMI: Hiroki managed to overcome his past, I'm happy for him.\nYUMI: Hiroki logró superar su pasado, me alegro por él."
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 21,
+    "trecho_letra": "Toca essa bola, joga comigo, por favor, tô te pedindo",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "surpreso",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 22,
+    "trecho_letra": "Jogo sem medo, o ego no lixo, monto meu reino do início",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 3,
+        "texto": "KOKUJIN: Ahh tomar no seu cu, desiste de uma vez logo\nKOKUJIN: Ahh, go fuck yourself, just give up already.\nKOKUJIN: Ahh, vete a la mierda, ríndete de una vez."
+      }
+    }
+  },
+  {
+    "cena": 23,
+    "trecho_letra": "Pode destruir meu império Que eu faço essa merda toda outra vez",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      }
+    }
+  },
+  {
+    "cena": 24,
+    "trecho_letra": "Pegue minha coroa, mas prometo e juro Vou voltar pra cobrar na Copa do Mundo",
+    "layout": "react_room_livepix_v1",
+    "personagens": {
+      "personagem_1": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_2": {
+        "emocao": "raiva",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_3": {
+        "emocao": "animado",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_4": {
+        "emocao": "feliz",
+        "intensidade": 2,
+        "texto": ""
+      },
+      "personagem_5": {
+        "emocao": "raiva",
+        "intensidade": 3,
+        "texto": "KOKUJIN: Quero ver isso ai na Copa... eu ainda sou melhor que esse merda.\nKOKUJIN: I wanna see that at the World Cup... I'm still better than that piece of shit.\nKOKUJIN: Quiero ver eso en el Mundial... sigo siendo mejor que ese pedazo de mierda."
+      }
+    }
+  }
 ]

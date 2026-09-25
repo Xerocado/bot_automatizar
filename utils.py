@@ -46,7 +46,29 @@ def carregar_json(caminho: Path) -> Any:
 
 
 def carregar_coords() -> dict:
-    return carregar_json(config.COORDS_FILE)
+    coords = carregar_json(config.COORDS_FILE)
+    base_w, base_h = config.COORDS_BASE_RESOLUTION
+    target_w, target_h = config.SCREEN_RESOLUTION
+    if min(base_w, base_h, target_w, target_h) <= 0:
+        raise ValueError("As resolucoes configuradas devem ser positivas.")
+    sx, sy = target_w / base_w, target_h / base_h
+
+    def ponto(p):
+        return [round(p[0] * sx), round(p[1] * sy)] if p is not None else None
+
+    coords["BOTOES"] = {nome: ponto(p) for nome, p in coords["BOTOES"].items()}
+    for chave in ("GRID_OLHOS", "GRID_BOCAS"):
+        grid = coords[chave]
+        for campo in ("primeiro_x", "dx"):
+            grid[campo] = round(grid[campo] * sx)
+        for campo in ("primeiro_y", "dy"):
+            grid[campo] = round(grid[campo] * sy)
+    contador = coords["PAGINA_CONTADOR"]
+    for campo in ("x", "largura"):
+        contador[campo] = round(contador[campo] * sx)
+    for campo in ("y", "altura"):
+        contador[campo] = round(contador[campo] * sy)
+    return coords
 
 
 def carregar_expressoes() -> dict:

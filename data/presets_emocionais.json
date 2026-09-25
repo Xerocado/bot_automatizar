@@ -19,8 +19,8 @@
 
   "raiva": {
     "intensidade_1": { "olhos": "raiva", "boca": "roendo_dente" },
-    "intensidade_2": { "olhos": "olho_feliz", "boca": "boca_raiva" },
-    "intensidade_3": { "olhos": "raiva", "boca": "gritando_raiva_2" }
+    "intensidade_2": { "olhos": "fechado", "boca": "boca_raiva" },
+    "intensidade_3": { "olhos": "raiva", "boca": "gritando_raiva_2"}
   },
 
   "surpreso": {

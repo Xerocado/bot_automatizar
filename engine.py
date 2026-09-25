@@ -40,6 +40,7 @@ import random
 import time
 
 import pyautogui
+import mss
 
 import config
 import screenshot
@@ -666,6 +667,20 @@ def inicializar() -> None:
     Deve ser chamado uma única vez no início da execução.
     """
     global _coords, _expressoes, _aliases_personagens
+
+    esperado = tuple(config.SCREEN_RESOLUTION)
+    with mss.mss() as sct:
+        if not 0 < config.MONITOR_INDEX < len(sct.monitors):
+            raise ValueError(f"MONITOR_INDEX invalido: {config.MONITOR_INDEX}")
+        monitor = sct.monitors[config.MONITOR_INDEX]
+    tamanho_mss = (monitor["width"], monitor["height"])
+    tamanho_mouse = tuple(pyautogui.size())
+    if tamanho_mss != esperado or tamanho_mouse != esperado or (monitor["left"], monitor["top"]) != (0, 0):
+        raise RuntimeError(
+            f"Resolucao configurada: {esperado}; monitor MSS: {tamanho_mss} "
+            f"na posicao ({monitor['left']}, {monitor['top']}); mouse: {tamanho_mouse}. "
+            "Use o monitor principal em tela cheia e confira a escala do Windows."
+        )
 
     pyautogui.FAILSAFE = config.FAILSAFE
     utils.info(f"FAILSAFE {'ativado' if config.FAILSAFE else 'desativado'}.")
