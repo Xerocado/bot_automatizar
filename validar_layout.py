@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 import sys
 from copy import deepcopy
-from pathlib import Path
 
 sys.dont_write_bytecode = True
 
@@ -16,13 +15,25 @@ import layout_renderer
 def main() -> None:
     director = ReactionDirector()
 
-    caminho_exemplo = Path(__file__).parent / "data" / "roteiro_layout.exemplo.json"
-    with open(caminho_exemplo, encoding="utf-8") as arquivo:
-        exemplos = json.load(arquivo)
-    for cena in exemplos:
-        assert set(cena) == {"cena", "layout", "personagens"}
-        director.processar(cena)
-    cena_nova = exemplos[0]
+    cena_nova = {
+        "cena": 1,
+        "layout": "react_room_livepix_v1",
+        "personagens": {
+            "personagem_1": {
+                "emocao": "surpreso", "intensidade": 3,
+                "texto": (
+                    "PERSONAGEM 1: O video ja comeca forte.\n"
+                    "PERSONAGEM 1: The video already starts strong.\n"
+                    "PERSONAGEM 1: El video ya empieza fuerte."
+                ),
+            },
+            "personagem_2": {"emocao": "neutro", "intensidade": 1, "texto": ""},
+            "personagem_3": {"emocao": "feliz", "intensidade": 2, "texto": ""},
+            "personagem_4": {"emocao": "neutro", "intensidade": 1, "texto": ""},
+            "personagem_5": {"emocao": "triste", "intensidade": 1, "texto": ""},
+        },
+    }
+    assert set(cena_nova) == {"cena", "layout", "personagens"}
 
     fala_longa = (
         "PERSONAGEM 3: Esta e uma fala longa em portugues para testar a quebra automatica "
@@ -74,7 +85,10 @@ def main() -> None:
     }
     assert director.processar({**cena_nova, **campos_removidos}) == cenas[0]
 
-    cena_muda = director.processar(exemplos[2])
+    cena_muda_dados = deepcopy(cena_nova)
+    cena_muda_dados["cena"] = 3
+    cena_muda_dados["personagens"]["personagem_1"]["texto"] = ""
+    cena_muda = director.processar(cena_muda_dados)
     assert cena_muda["personagem"] is None
     assert not any(layout_renderer.extrair_falas(cena_muda).values())
     assert not any(estado["falando"] for estado in cena_muda["personagens"].values())

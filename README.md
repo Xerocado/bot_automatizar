@@ -18,9 +18,7 @@ bot_automatizar/
 │   ├── personagens.json               # Slots genéricos e aliases aceitos
 │   ├── personalidades.json            # Regras por personagem
 │   ├── presets_emocionais.json        # Emoção + intensidade -> olhos/boca
-│   ├── roteiro.json                   # Roteiro executado pelo bot
-│   ├── roteiro_completo.exemplo.json  # Exemplo de roteiro com vários personagens
-│   └── roteiro_layout.exemplo.json    # Exemplo do layout react_room_livepix_v1
+│   └── roteiro.json                   # Roteiro executado pelo bot
 ├── cenas/                             # PNGs limpos gerados pelo modo layout
 ├── refs_paginas/                      # Referências do contador de página
 ├── output/                            # Capturas do modo gacha e arquivos de apoio
@@ -30,7 +28,6 @@ bot_automatizar/
 ├── engine.py                          # Motor de automação
 ├── layout_renderer.py                 # Render limpo 1920x1080 por preset
 ├── main.py                            # Ponto de entrada
-├── PROMPT_ROTEIRO_LAYOUT.md            # Instruções para gerar roteiros com layout
 ├── reaction_director.py               # Converte roteiro em expressões finais
 ├── remapear.py                        # Ferramenta para listar/editar expressões
 ├── screenshot.py                      # Captura e overlay de texto
@@ -181,7 +178,7 @@ linha 3 = espanhol
 
 O layout quebra automaticamente cada fala e ajusta a fonte para a faixa inferior. Roteiros antigos sem `layout` usam o preset padrão de `config.py`.
 
-Veja `data/roteiro_layout.exemplo.json` para cenas com fala e mudas, e `PROMPT_ROTEIRO_LAYOUT.md` para as instruções de geração do roteiro.
+O exemplo acima mostra uma cena com fala. Para criar uma cena muda, deixe `texto` vazio em todos os personagens.
 
 Regras aplicadas pelo `ReactionDirector`:
 
