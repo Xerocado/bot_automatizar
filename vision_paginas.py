@@ -6,6 +6,73 @@ import pyautogui
 import config
 
 REFS_DIR = config.BASE_DIR / "refs_paginas"
+TOTAL_PAGINAS = {"olhos": 7, "bocas": 13}
+
+
+def recortar_numero(img):
+    """Isola os digitos antes da barra, preservando paginas de dois digitos."""
+    mascara = preparar(img)
+    bbox = mascara.getbbox()
+    if bbox is None:
+        raise ValueError("Contador vazio.")
+    mascara = mascara.crop(bbox)
+    grupos = []
+    inicio = None
+    for x in range(mascara.width + 1):
+        ocupado = x < mascara.width and mascara.crop((x, 0, x + 1, mascara.height)).getbbox() is not None
+        if ocupado and inicio is None:
+            inicio = x
+        if not ocupado and inicio is not None:
+            grupos.append((inicio, x))
+            inicio = None
+    altura = mascara.height
+    fim = 0
+    for esquerda, direita in grupos:
+        componente = mascara.crop((esquerda, 0, direita, altura))
+        limites = componente.getbbox()
+        componente = componente.crop(limites)
+        # Fragmentos curtos no fim sao sobras da barra de capturas manuais.
+        if componente.height < altura * 0.6:
+            break
+        linhas = [componente.crop((0, y, componente.width, y + 1)).getbbox()
+                  for y in range(componente.height)]
+        linhas = [linha for linha in linhas if linha]
+        quarto = max(1, len(linhas) // 4)
+        topo = sum((l[0] + l[2]) / 2 for l in linhas[:quarto]) / quarto
+        base = sum((l[0] + l[2]) / 2 for l in linhas[-quarto:]) / quarto
+        barra = (topo - base > componente.height * 0.18
+                 and max(l[2] - l[0] for l in linhas) <= componente.height * 0.25)
+        if barra:
+            break
+        fim = direita
+    if fim == 0:
+        raise ValueError("Nenhum digito antes da barra do contador.")
+    numero = mascara.crop((0, 0, fim, altura))
+    return numero.crop(numero.getbbox())
+
+
+def normalizar_numero(img):
+    numero = recortar_numero(img)
+    escala = min(40 / numero.width, 32 / numero.height)
+    numero = numero.resize((max(1, round(numero.width * escala)),
+                            max(1, round(numero.height * escala))), Image.Resampling.NEAREST)
+    canvas = Image.new("L", (44, 36))
+    canvas.paste(numero, ((44 - numero.width) // 2, (36 - numero.height) // 2))
+    return canvas
+
+
+def selecionar_referencias(tipo):
+    largura, altura = config.SCREEN_RESOLUTION
+    pasta = REFS_DIR / f"{largura}x{altura}"
+    if pasta.is_dir():
+        faltando = [n for n in range(1, TOTAL_PAGINAS[tipo] + 1)
+                    if not (pasta / f"{tipo}_{n}.png").is_file()]
+        if faltando:
+            raise PaginaNaoReconhecida(f"Referencias incompletas em {pasta}: {tipo} {faltando}")
+        return pasta, True
+    if tuple(config.SCREEN_RESOLUTION) != tuple(config.COORDS_BASE_RESOLUTION):
+        raise PaginaNaoReconhecida(f"Faltam referencias proprias para esta resolucao: {pasta}")
+    return REFS_DIR, False
 
 
 class PaginaNaoReconhecida(RuntimeError):
@@ -62,6 +129,11 @@ def detectar_pagina(tipo, coords, *, salvar_diagnostico=False):
     if not 0 <= config.PAGE_MAX_DIFFERENCE <= 1 or not 0 <= config.PAGE_MIN_SCORE_GAP <= 1:
         raise ValueError("PAGE_MAX_DIFFERENCE e PAGE_MIN_SCORE_GAP devem estar entre 0 e 1.")
     atual = capturar_contador(coords)
+    pasta_refs, normalizar = selecionar_referencias(tipo)
+    try:
+        comparacao = normalizar_numero(atual) if normalizar else atual
+    except ValueError:
+        comparacao = None
 
     if config.DEBUG_SCREENSHOTS:
         atual.save("debug_atual.png")
@@ -69,14 +141,16 @@ def detectar_pagina(tipo, coords, *, salvar_diagnostico=False):
     scores = []
 
     for arquivo in sorted(
-        REFS_DIR.glob(f"{tipo}_*.png")
+        pasta_refs.glob(f"{tipo}_*.png")
     ):
         try:
             with Image.open(arquivo) as original:
                 ref = original.copy()
-            if ref.size != atual.size:
+            if normalizar:
+                ref = normalizar_numero(ref)
+            elif ref.size != atual.size:
                 ref = ref.resize(atual.size, Image.Resampling.LANCZOS)
-            score = diferenca(atual, ref)
+            score = diferenca(comparacao, ref) if comparacao is not None else ref.width * ref.height * 255
             pagina = int(arquivo.stem.split("_")[1])
         except (OSError, ValueError) as exc:
             raise PaginaNaoReconhecida(f"Referencia invalida: {arquivo}: {exc}") from exc
@@ -89,7 +163,7 @@ def detectar_pagina(tipo, coords, *, salvar_diagnostico=False):
         scores.append({"pagina": pagina, "score": score})
 
     scores.sort(key=lambda item: item["score"])
-    max_score = atual.width * atual.height * 255
+    max_score = (44 * 36 if normalizar else atual.width * atual.height) * 255
     diferenca_relativa = scores[0]["score"] / max_score if scores else 1.0
     separacao = (scores[1]["score"] - scores[0]["score"]) / max_score if len(scores) > 1 else 0.0
     confiavel = (
@@ -108,7 +182,8 @@ def detectar_pagina(tipo, coords, *, salvar_diagnostico=False):
         dados = {
             "resolucao_configurada": config.SCREEN_RESOLUTION,
             "regiao": coords, "tamanho_captura": atual.size,
-            "referencias": str(REFS_DIR), "scores": scores,
+            "referencias": str(pasta_refs), "scores": scores,
+            "numeros_normalizados": normalizar,
             "diferenca": diferenca_relativa, "separacao": separacao,
             "confiavel": confiavel,
         }

@@ -17,9 +17,12 @@ COORDS_FILE     = DATA_DIR / "coords.json"
 COORDS_BASE_RESOLUTION = (1920, 1080)
 # Resolucao do monitor principal onde o Gacha Club e executado.
 SCREEN_RESOLUTION = (1920, 1080)  # ou (1366, 768)
-# Ajuste fino do recorte (dx, dy), apos a escala. Notebook: janela maximizada
-# com barra de titulo e barra de tarefas, conforme a captura de calibracao.
-PAGE_COUNTER_OFFSETS = {(1366, 768): (-5, -5)}
+# Ajuste fino opcional (dx, dy) para resolucoes sem regiao propria.
+PAGE_COUNTER_OFFSETS = {}
+# Regiao do contador completo no notebook; inclui a barra para separar o numero.
+PAGE_COUNTER_REGIONS = {
+    (1366, 768): {"x": 875, "y": 640, "largura": 78, "altura": 42},
+}
 EXPRESSOES_FILE = DATA_DIR / "expressoes.json"
 PRESETS_FILE    = DATA_DIR / "presets_emocionais.json"
 PERSONALIDADES_FILE = DATA_DIR / "personalidades.json"

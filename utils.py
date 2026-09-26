@@ -71,6 +71,8 @@ def carregar_coords() -> dict:
     offset_x, offset_y = config.PAGE_COUNTER_OFFSETS.get((target_w, target_h), (0, 0))
     contador["x"] += offset_x
     contador["y"] += offset_y
+    if (target_w, target_h) in config.PAGE_COUNTER_REGIONS:
+        coords["PAGINA_CONTADOR"] = dict(config.PAGE_COUNTER_REGIONS[(target_w, target_h)])
     return coords
 
 

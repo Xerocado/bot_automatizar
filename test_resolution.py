@@ -7,7 +7,7 @@ from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 import engine
 import utils
@@ -25,8 +25,7 @@ class ResolutionTests(unittest.TestCase):
         self.assertEqual(scaled["BOTOES"]["PERSONAGEM_1"], [1253, 50])
         self.assertEqual(scaled["GRID_OLHOS"]["primeiro_x"], round(842 * 1366 / 1920))
         self.assertEqual(scaled["GRID_BOCAS"]["dy"], round(165 * 768 / 1080))
-        self.assertEqual(scaled["PAGINA_CONTADOR"]["largura"], round(29 * 1366 / 1920))
-        self.assertEqual(scaled["PAGINA_CONTADOR"]["altura"], round(44 * 768 / 1080))
+        self.assertEqual(scaled["PAGINA_CONTADOR"], {"x": 875, "y": 640, "largura": 78, "altura": 42})
         self.assertEqual(utils.carregar_json(engine.config.COORDS_FILE), base)
 
     def test_wrong_screen_stops_before_clicking(self):
@@ -82,8 +81,38 @@ class ResolutionTests(unittest.TestCase):
              patch.object(vision_paginas.pyautogui, "screenshot", side_effect=captura), \
              redirect_stdout(io.StringIO()):
             coords = utils.carregar_coords()["PAGINA_CONTADOR"]
-            self.assertEqual(coords, {"x": 887, "y": 643, "largura": 21, "altura": 31})
+            self.assertEqual(coords, {"x": 875, "y": 640, "largura": 78, "altura": 42})
             self.assertEqual(vision_paginas.detectar_pagina("olhos", coords), 1)
+
+    def test_notebook_all_pages_with_margins_and_denominator(self):
+        pasta = vision_paginas.REFS_DIR / "1366x768"
+        for tipo, total in vision_paginas.TOTAL_PAGINAS.items():
+            with Image.open(pasta / f"{tipo}_{total}.png") as ref_total:
+                denominador = ref_total.copy()
+            for pagina in range(1, total + 1):
+                with self.subTest(tipo=tipo, pagina=pagina):
+                    with Image.open(pasta / f"{tipo}_{pagina}.png") as ref:
+                        numero = ref.copy()
+                    for deslocamento in (2, 5):
+                        captura = Image.new("L", (78, 42))
+                        captura.paste(numero, (deslocamento, 5))
+                        barra_x = deslocamento + numero.width + 3
+                        ImageDraw.Draw(captura).line((barra_x + 8, 5, barra_x, 30), fill=255, width=3)
+                        captura.paste(denominador, (barra_x + 12, 5))
+                        with patch("config.SCREEN_RESOLUTION", (1366, 768)), \
+                             patch.object(vision_paginas, "capturar_contador", return_value=captura), \
+                             redirect_stdout(io.StringIO()):
+                            self.assertEqual(vision_paginas.detectar_pagina(tipo, {}), pagina)
+
+    def test_missing_native_profile_is_not_replaced_by_resized_desktop_refs(self):
+        with tempfile.TemporaryDirectory() as temp, \
+             patch.object(vision_paginas, "REFS_DIR", Path(temp)), \
+             patch("config.SCREEN_RESOLUTION", (1366, 768)):
+            with self.assertRaisesRegex(vision_paginas.PaginaNaoReconhecida, "Faltam referencias"):
+                vision_paginas.selecionar_referencias("olhos")
+            (Path(temp) / "1366x768").mkdir()
+            with self.assertRaisesRegex(vision_paginas.PaginaNaoReconhecida, "incompletas"):
+                vision_paginas.selecionar_referencias("olhos")
 
     def test_bad_or_ambiguous_capture_saves_diagnostic(self):
         for ambiguous in (False, True):

@@ -70,7 +70,7 @@ Em `config.py`, escolha a resolução do monitor principal:
 SCREEN_RESOLUTION = (1920, 1080)  # ou (1366, 768)
 ```
 
-O arquivo `data/coords.json` continua mapeado em 1920x1080. Para 1366x768, o bot calcula `x * 1366 / 1920` e `y * 768 / 1080` para os botões, o grid e a região do contador de páginas. Por exemplo, `(1761, 71)` vira aproximadamente `(1253, 50)`. As imagens de referência do contador também são redimensionadas para a região capturada. O arquivo de coordenadas original não é alterado.
+O arquivo `data/coords.json` continua mapeado em 1920x1080. Para 1366x768, o bot calcula `x * 1366 / 1920` e `y * 768 / 1080` para os botões e o grid. Por exemplo, `(1761, 71)` vira aproximadamente `(1253, 50)`. O contador do notebook usa uma região própria em `PAGE_COUNTER_REGIONS` e referências nativas em `refs_paginas/1366x768/`. O arquivo de coordenadas original não é alterado.
 
 Configure o monitor principal na resolução escolhida e mantenha a janela do jogo na posição e no tamanho usados no mapeamento. O ajuste do contador em 1366x768 foi calibrado com janela maximizada, barra de título e barra de tarefas visíveis. O bot confere o tamanho do monitor capturado e das coordenadas do mouse antes de clicar; se houver divergência, interrompe a execução. Essa conferência não verifica a posição da janela do jogo. Em notebook com escala do Windows acima de 100%, confira se os dois tamanhos reportados pelo bot coincidem. O modo `layout` mantém seu canvas próprio de 1920x1080.
 
@@ -337,7 +337,9 @@ Quando `DEBUG_SCREENSHOTS=True`, a captura atual do contador é salva em `debug_
 
 A deteccao rejeita comparacoes com muita diferenca ou resultados muito proximos entre duas paginas. Nesses casos, o bot interrompe o roteiro, mantem o seletor aberto e salva `output/debug/contador_olhos.png` (ou `contador_bocas.png`), junto com um JSON contendo a regiao capturada e os scores. Os limites ficam em `PAGE_MAX_DIFFERENCE` e `PAGE_MIN_SCORE_GAP`, em `config.py`; sao criterios de rejeicao, nao garantia de reconhecimento.
 
-O perfil 1366x768 tem um ajuste de recorte em `PAGE_COUNTER_OFFSETS = {(1366, 768): (-5, -5)}`. Ele foi medido numa captura com o jogo maximizado, barra de titulo e barra de tarefas visiveis: o contador passa de `(892, 648)` para `(887, 643)`, com tamanho `21x31`. Isso ajusta apenas a leitura do numero, nao os cliques. O perfil 1920x1080 permanece sem deslocamento. Uma janela em outra posicao ou em tela cheia pode exigir outra calibracao; nesse caso, use o diagnostico abaixo antes de executar o roteiro.
+O perfil 1366x768 usa `PAGE_COUNTER_REGIONS` com `x=875, y=640, largura=78, altura=42`, medido para janela maximizada com barra de titulo e barra de tarefas visiveis. Essa regiao substitui a escala e o ajuste fino somente do contador; nao altera os cliques. Ela comporta o contador completo, inclusive paginas 10 a 13. O bot remove as margens e a barra com o denominador, preserva os digitos da pagina atual e normaliza o numero antes da comparacao.
+
+As 20 referencias nativas do notebook ficam em `refs_paginas/1366x768/`: 7 de olhos e 13 de bocas, tratadas a partir das capturas fornecidas. Em 1920x1080, os arquivos originais na raiz de `refs_paginas/` e a comparacao antiga continuam sendo usados. O bot nao substitui um conjunto nativo ausente ou incompleto por imagens redimensionadas do desktop. A igualdade do numero tratado resulta em score zero, mas uma captura real pode apresentar pequenas diferencas; os limites de confianca continuam ativos.
 
 Para diagnosticar sem executar o roteiro nem mover o mouse:
 
@@ -345,7 +347,7 @@ Para diagnosticar sem executar o roteiro nem mover o mouse:
 py vision_paginas.py olhos
 ```
 
-Deixe o seletor de olhos aberto e volte ao jogo durante a espera de 5 segundos. Para bocas, troque `olhos` por `bocas`. Confira o recorte salvo: ele deve mostrar o mesmo trecho do numero que as referencias. Se o recorte estiver deslocado, corrija a posicao/escala da janela ou o mapeamento; se estiver certo mas o desenho dos numeros for diferente, sera preciso recalibrar as referencias na resolucao usada. Redimensionar imagens de 1920x1080 nao garante que a interface renderizada em 1366x768 fique identica.
+Deixe o seletor de olhos aberto e volte ao jogo durante a espera de 5 segundos. Para bocas, troque `olhos` por `bocas`. No notebook, o recorte salvo deve mostrar o contador completo (por exemplo, `12/13`), sem cortar os digitos nem incluir o titulo `Page`. Se estiver deslocado, ajuste a janela ou `PAGE_COUNTER_REGIONS`. Outra posicao de janela ou escala pode exigir nova calibracao.
 
 ## Saída
 
