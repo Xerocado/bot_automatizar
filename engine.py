@@ -45,7 +45,7 @@ import mss
 import config
 import screenshot
 import utils
-from vision_paginas import detectar_pagina
+from vision_paginas import PaginaNaoReconhecida, detectar_pagina
 
 # ── Estado interno ─────────────────────────────────────────────────────────────
 
@@ -679,7 +679,7 @@ def inicializar() -> None:
         raise RuntimeError(
             f"Resolucao configurada: {esperado}; monitor MSS: {tamanho_mss} "
             f"na posicao ({monitor['left']}, {monitor['top']}); mouse: {tamanho_mouse}. "
-            "Use o monitor principal em tela cheia e confira a escala do Windows."
+            "Use o monitor principal na resolucao configurada e confira a escala do Windows."
         )
 
     pyautogui.FAILSAFE = config.FAILSAFE
@@ -756,6 +756,9 @@ def processar_cena(cena: dict, indice: int) -> None:
     try:
         _processar_cena_impl(cena, indice)
     except pyautogui.FailSafeException:
+        raise
+    except PaginaNaoReconhecida:
+        _estado.update({"pagina_olhos": None, "pagina_bocas": None})
         raise
     except Exception as exc:
         recuperar_para_home(f"Cena {indice:03d} falhou: {exc}")

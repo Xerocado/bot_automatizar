@@ -68,6 +68,9 @@ def carregar_coords() -> dict:
         contador[campo] = round(contador[campo] * sx)
     for campo in ("y", "altura"):
         contador[campo] = round(contador[campo] * sy)
+    offset_x, offset_y = config.PAGE_COUNTER_OFFSETS.get((target_w, target_h), (0, 0))
+    contador["x"] += offset_x
+    contador["y"] += offset_y
     return coords
 
 

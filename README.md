@@ -72,7 +72,7 @@ SCREEN_RESOLUTION = (1920, 1080)  # ou (1366, 768)
 
 O arquivo `data/coords.json` continua mapeado em 1920x1080. Para 1366x768, o bot calcula `x * 1366 / 1920` e `y * 768 / 1080` para os botões, o grid e a região do contador de páginas. Por exemplo, `(1761, 71)` vira aproximadamente `(1253, 50)`. As imagens de referência do contador também são redimensionadas para a região capturada. O arquivo de coordenadas original não é alterado.
 
-Configure o Windows e o jogo para que o Gacha Club ocupe a tela inteira na resolução escolhida, sem bordas, deslocamento ou escala de interface diferente. O bot confere o tamanho do monitor capturado e das coordenadas do mouse antes de clicar; se houver divergência, interrompe a execução. Em notebook com escala do Windows acima de 100%, confira se os dois tamanhos reportados pelo bot coincidem. O modo `layout` mantém seu canvas próprio de 1920x1080.
+Configure o monitor principal na resolução escolhida e mantenha a janela do jogo na posição e no tamanho usados no mapeamento. O ajuste do contador em 1366x768 foi calibrado com janela maximizada, barra de título e barra de tarefas visíveis. O bot confere o tamanho do monitor capturado e das coordenadas do mouse antes de clicar; se houver divergência, interrompe a execução. Essa conferência não verifica a posição da janela do jogo. Em notebook com escala do Windows acima de 100%, confira se os dois tamanhos reportados pelo bot coincidem. O modo `layout` mantém seu canvas próprio de 1920x1080.
 
 Para gerar apenas as composições do layout, troque para `RENDER_MODE = "layout"` em `config.py`. Nesse modo, as imagens são salvas em `cenas/` e o bot não interage com o Gacha Club. O campo `layout` do roteiro escolhe o preset visual, mas não muda o modo de execução.
 
@@ -334,6 +334,18 @@ Arquivos esperados:
 - `refs_paginas/bocas_1.png`, `bocas_2.png`, etc.
 
 Quando `DEBUG_SCREENSHOTS=True`, a captura atual do contador é salva em `debug_atual.png`.
+
+A deteccao rejeita comparacoes com muita diferenca ou resultados muito proximos entre duas paginas. Nesses casos, o bot interrompe o roteiro, mantem o seletor aberto e salva `output/debug/contador_olhos.png` (ou `contador_bocas.png`), junto com um JSON contendo a regiao capturada e os scores. Os limites ficam em `PAGE_MAX_DIFFERENCE` e `PAGE_MIN_SCORE_GAP`, em `config.py`; sao criterios de rejeicao, nao garantia de reconhecimento.
+
+O perfil 1366x768 tem um ajuste de recorte em `PAGE_COUNTER_OFFSETS = {(1366, 768): (-5, -5)}`. Ele foi medido numa captura com o jogo maximizado, barra de titulo e barra de tarefas visiveis: o contador passa de `(892, 648)` para `(887, 643)`, com tamanho `21x31`. Isso ajusta apenas a leitura do numero, nao os cliques. O perfil 1920x1080 permanece sem deslocamento. Uma janela em outra posicao ou em tela cheia pode exigir outra calibracao; nesse caso, use o diagnostico abaixo antes de executar o roteiro.
+
+Para diagnosticar sem executar o roteiro nem mover o mouse:
+
+```bash
+py vision_paginas.py olhos
+```
+
+Deixe o seletor de olhos aberto e volte ao jogo durante a espera de 5 segundos. Para bocas, troque `olhos` por `bocas`. Confira o recorte salvo: ele deve mostrar o mesmo trecho do numero que as referencias. Se o recorte estiver deslocado, corrija a posicao/escala da janela ou o mapeamento; se estiver certo mas o desenho dos numeros for diferente, sera preciso recalibrar as referencias na resolucao usada. Redimensionar imagens de 1920x1080 nao garante que a interface renderizada em 1366x768 fique identica.
 
 ## Saída
 

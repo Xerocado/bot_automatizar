@@ -15,8 +15,11 @@ LAYOUTS_DIR = DATA_DIR / "layouts"
 COORDS_FILE     = DATA_DIR / "coords.json"
 # As coordenadas de coords.json foram medidas nesta resolucao.
 COORDS_BASE_RESOLUTION = (1920, 1080)
-# Resolucao do monitor onde o Gacha Club ocupa a tela inteira.
+# Resolucao do monitor principal onde o Gacha Club e executado.
 SCREEN_RESOLUTION = (1920, 1080)  # ou (1366, 768)
+# Ajuste fino do recorte (dx, dy), apos a escala. Notebook: janela maximizada
+# com barra de titulo e barra de tarefas, conforme a captura de calibracao.
+PAGE_COUNTER_OFFSETS = {(1366, 768): (-5, -5)}
 EXPRESSOES_FILE = DATA_DIR / "expressoes.json"
 PRESETS_FILE    = DATA_DIR / "presets_emocionais.json"
 PERSONALIDADES_FILE = DATA_DIR / "personalidades.json"
@@ -46,6 +49,10 @@ DEBUG_MOUSE = False
 # ── Debug screenshots ─────────────────────────────────────────────────────────
 # Salva capturas antes de cada submenu para diagnóstico
 DEBUG_SCREENSHOTS = False
+
+# Comparacao binaria do contador; diferenca menor significa melhor correspondencia.
+PAGE_MAX_DIFFERENCE = 0.15
+PAGE_MIN_SCORE_GAP = 0.02
 
 # ── Segurança ─────────────────────────────────────────────────────────────────
 FAILSAFE = True          # mover mouse ao canto superior-esquerdo encerra o bot

@@ -66,6 +66,7 @@ def main() -> None:
         sys.exit(1)
 
     import engine
+    from vision_paginas import PaginaNaoReconhecida
 
     utils.info("Modo gacha: controla o Gacha Club e captura as cenas do jogo.")
     engine.inicializar()
@@ -76,6 +77,12 @@ def main() -> None:
         try:
             engine.processar_cena(cena_resolvida, i)
             concluidas += 1
+        except PaginaNaoReconhecida as exc:
+            msg = f"Cena {i:03d}: {exc}"
+            utils.erro(msg)
+            erros.append(msg)
+            utils.warn("Execucao interrompida. O seletor foi mantido aberto para conferir o contador.")
+            break
         except KeyboardInterrupt:
             utils.warn("Interrompido pelo usuario.")
             break
