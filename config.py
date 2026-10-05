@@ -40,6 +40,8 @@ DELAY_CURTO     = 0.05   # entre cliques rápidos (ex: virar páginas)
 DELAY_MEDIO     = 0.10   # após abrir menus / mudar estado de UI
 DELAY_LONGO     = 0.30   # aguardar animações maiores (editor, estúdio)
 DELAY_SUBMENU   = 0.05  # especificamente após abrir submenus de face
+VIEW_SETTLE_DELAY = 0.4  # tempo extra para o Estudio ocultar a interface
+VIEW_MAX_ATTEMPTS = 2    # repetir o clique se o HUD continuar visivel
 
 # ── Randomização de clique ────────────────────────────────────────────────────
 # Reduzido para ±1 pixel — botões do Gacha Club são pequenos

@@ -41,6 +41,7 @@ import time
 
 import pyautogui
 import mss
+from PIL import ImageChops, ImageStat
 
 import config
 import screenshot
@@ -913,17 +914,51 @@ def _capturar_cena(indice: int, rotulo: str, comentario: str) -> None:
     else:
         utils.debug("Estudio ja esta aberto; seguindo para captura.")
 
-    utils.info("Ocultando HUD e capturando screenshot...")
-    clicar("ocultar_interface", delay=config.DELAY_LONGO)
-    img = screenshot.capturar_tela()
-
-    utils.info("Restaurando HUD...")
-    clicar("ocultar_interface", delay=config.DELAY_MEDIO)
+    img = _capturar_sem_hud()
 
     utils.info("Adicionando comentario e salvando...")
     img_final = screenshot.adicionar_comentario(img, comentario)
     nome_arquivo = f"cena_{indice:03d}_{rotulo.lower()}.png"
     screenshot.salvar_imagem(img_final, nome_arquivo)
+
+
+def _hud_oculto(antes, depois) -> bool:
+    """Confere se os controles fixos dos dois lados desapareceram."""
+    if antes.size != depois.size:
+        return False
+    regioes = (
+        (0.040, 0.801, 0.124, 0.931),  # botao View
+        (0.816, 0.176, 0.875, 0.267),  # painel lateral direito
+    )
+    for x1, y1, x2, y2 in regioes:
+        area = tuple(round(valor * eixo) for valor, eixo in zip(
+            (x1, y1, x2, y2), (antes.width, antes.height, antes.width, antes.height)
+        ))
+        diferenca = ImageChops.difference(antes.crop(area), depois.crop(area))
+        mudanca = sum(ImageStat.Stat(diferenca).mean) / (len(diferenca.getbands()) * 255)
+        if mudanca < 0.15:
+            return False
+    return True
+
+
+def _capturar_sem_hud():
+    utils.info("Ocultando HUD e conferindo a tela antes da captura...")
+    antes = screenshot.capturar_tela()
+    for tentativa in range(1, config.VIEW_MAX_ATTEMPTS + 1):
+        clicar("ocultar_interface", delay=config.DELAY_LONGO)
+        time.sleep(config.VIEW_SETTLE_DELAY)
+        depois = screenshot.capturar_tela()
+        if not _hud_oculto(antes, depois):
+            time.sleep(config.VIEW_SETTLE_DELAY)
+            depois = screenshot.capturar_tela()
+        if _hud_oculto(antes, depois):
+            try:
+                return depois
+            finally:
+                utils.info("Restaurando HUD...")
+                clicar("ocultar_interface", delay=config.DELAY_MEDIO)
+        utils.warn(f"View nao ocultou o HUD (tentativa {tentativa}/{config.VIEW_MAX_ATTEMPTS}).")
+    raise RuntimeError("View nao ocultou o HUD; screenshot nao foi salva.")
 
 
 def _processar_cena_impl_antigo(cena: dict, indice: int) -> None:
@@ -1003,12 +1038,7 @@ def _processar_cena_impl_antigo(cena: dict, indice: int) -> None:
 
     # ── 8. Screenshot limpa ───────────────────────────────────────────────────
     utils.info("[8/9] Ocultando HUD e capturando screenshot...")
-    clicar("ocultar_interface", delay=config.DELAY_LONGO)
-
-    img = screenshot.capturar_tela()
-
-    utils.info("[8/9] Restaurando HUD...")
-    clicar("ocultar_interface", delay=config.DELAY_MEDIO)
+    img = _capturar_sem_hud()
 
     # ── 9. Salvar imagem com comentário ──────────────────────────────────────
     utils.info("[9/9] Adicionando comentário e salvando...")
